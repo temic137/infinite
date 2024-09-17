@@ -1,0 +1,46 @@
+  <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 sm:py-8 lg:px-8">
+    <div class="bg-zinc-900 shadow-2xl sm:rounded-3xl overflow-hidden">
+      <div class="px-6 py-12 sm:px-12 lg:px-16 lg:py-16">
+        <h2 class="text-3xl font-bold text-pink-500 mb-8">Yello : )</h2>
+        
+        <div class="bg-purple-800 rounded-2xl p-6 sm:p-8 shadow-lg">
+          <h3 class="text-xl font-semibold text-pink-300 mb-4">Our Booking Policy</h3>
+          <p class="text-white text-sm leading-relaxed">
+            Welcome!<br><br>
+            Thank you for booking with me! To learn more about us, feel free to check out our Instagram page.
+            <a href="https://www.instagram.com/infin_itebeauty2207?utm_source=qr&igsh=dGU2bDY5MnJicXZn" class="text-pink-500 font-bold text-lg">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+              
+              <!-- White camera outline -->
+              <rect x="10" y="10" width="30" height="30" rx="7.5" ry="7.5" fill="black" stroke="white" stroke-width="3"/>
+              
+              <!-- Camera lens -->
+              <circle cx="25" cy="25" r="7.5" fill="black" stroke="white" stroke-width="3"/>
+              
+              <!-- Camera flash -->
+              <circle cx="37.5" cy="12.5" r="2.5" fill="white"/>
+            </svg></a>
+          </p>
+        </div>
+        <br>
+
+        <button (click)="makev()" class="bg-gradient-to-r from-pink-500 to-purple-600 w-24 h-11 rounded-full border border-pink-500 text-white font-medium shadow-sm hover:bg-purple-700">
+          Policies
+        </button>
+
+        <div *ngIf="isVisible" class="admin-overlay bg-zinc-900 bg-opacity-80 fixed inset-0 flex justify-center items-center z-50">
+          <div class="container mx-auto p-8 bg-gradient-to-br from-purple-800 to-black rounded-xl shadow-lg max-w-4xl">
+            
+            <h2 class="text-2xl font-bold mb-4 text-pink-400">Our Policies</h2>
+            <button (click)="close()" class="absolute top-4 right-4 text-pink-300 hover:text-white focus:outline-none transition-colors duration-200"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg></button>
+            <main>
+              <h2 class="font-bold underline">BOOKING POLICY</h2>
+              <p>Booking Policy: You can cancel or reschedule up to 48 hours before the appointment time.</p>
+          </main>
+            
+      </div>
+    </div>
+  </div>
+  

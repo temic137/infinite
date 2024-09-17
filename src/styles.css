@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles.css */
+/* html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #000000, #7a00c9);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+/* In your global styles or app component styles */
+.content-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+  padding: 20px;
+  border-radius: 10px;
+}

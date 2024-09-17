@@ -1,0 +1,133 @@
+<header class="mx-auto font-bold text-xl border-none outline-none">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 outline-none" aria-label="Global">
+      <div class="flex lg:flex-1 outline-none">
+        <a href="#" class="-m-1.5 p-1.5 outline-none">
+          <span class="sr-only">Your Company</span>
+        </a>
+      </div>
+      <div class="flex lg:hidden outline-none">
+        <button type="button" (click)="toggleMobileMenu()" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-pink-500 appearance-none outline-none">
+          <span class="sr-only">{{isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}}</span>
+          <svg class="h-6 w-6" [attr.aria-hidden]="isMobileMenuOpen" [ngClass]="{'hidden': isMobileMenuOpen, 'block': !isMobileMenuOpen}" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg class="h-6 w-6" [attr.aria-hidden]="!isMobileMenuOpen" [ngClass]="{'block': isMobileMenuOpen, 'hidden': !isMobileMenuOpen}" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-6">
+        <a routerLink="/" fragment="" class="nav-link">Home</a>
+        <a routerLink="/" fragment="services" class="nav-link">Services</a>
+        <a routerLink="/" fragment="about" class="nav-link">About</a>
+        <a routerLink="/" fragment="contact" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <button (click)="sharePage();" class="text-pink-500 hover:text-purple-300 transition duration-150 ease-in-out appearance-none"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="23" fill="#AA336A" stroke="none"/>
+          <path d="M25 15 L25 35" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+          <path d="M18 22 L25 15 L32 22" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 34 L15 38 L35 38 L35 34" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        </svg>
+        </button>
+        <button (click)="showAdmin()" class="text-pink-500 hover:text-purple-300 transition duration-150 ease-in-out appearance-none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-20 h-20">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M16 18v-1a4 4 0 00-8 0v1" />
+          </svg>          
+        </button>
+      </div>
+    </nav>
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div class="lg:hidden border-none outline-none" [ngClass]="{'block': isMobileMenuOpen, 'hidden': !isMobileMenuOpen}" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2">
+        <a routerLink="/" fragment="" (click)="toggleMobileMenu()" class="mobile-nav-link">Home</a>
+        <a routerLink="/" fragment="services" (click)="toggleMobileMenu()" class="mobile-nav-link">Services</a>
+        <a routerLink="/" fragment="about" (click)="toggleMobileMenu()" class="mobile-nav-link">About</a>
+        <a routerLink="/" fragment="contact" (click)="toggleMobileMenu()" class="mobile-nav-link">Contact</a>
+        <button (click)="sharePage();" class="mobile-nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="23" fill="#AA336A" stroke="none"/>
+          <path d="M25 15 L25 35" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+          <path d="M18 22 L25 15 L32 22" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 34 L15 38 L35 38 L35 34" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        </svg></button>
+        <button (click)="showAdmin(); toggleMobileMenu()" class="mobile-nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M16 18v-1a4 4 0 00-8 0v1" />
+        </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <div *ngIf="isVisible" class="admin-overlay bg-black bg-opacity-80 fixed inset-0 flex justify-center items-center z-50 p-4">
+    <div class="container mx-auto bg-gradient-to-br from-purple-800 to-black rounded-xl shadow-lg max-w-4xl overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-bold mb-4 text-pink-400">Admin Dashboard</h2>
+      
+        <div *ngIf="!isLoggedIn">
+          <h3 class="text-xl mb-2 text-pink-300">Login</h3>
+          <form (ngSubmit)="login()" class="mb-4">
+            <div class="mb-2">
+              <label for="username" class="block text-pink-300">Username:</label>
+              <input type="text" id="username" [(ngModel)]="username" name="username" required 
+                     class="border border-pink-500 bg-purple-700 p-2 text-white rounded-md shadow-sm w-full
+                            focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+            </div>
+            <div class="mb-2">
+              <label for="password" class="block text-pink-300">Password:</label>
+              <input type="password" id="password" [(ngModel)]="password" name="password" required 
+                     class="border border-pink-500 bg-purple-700 p-2 text-white rounded-md shadow-sm w-full
+                            focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+            </div>
+            <button type="submit" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded shadow-sm 
+                           hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500
+                           transition duration-150 ease-in-out transform hover:scale-105">
+              Login
+            </button>
+          </form>
+          <p *ngIf="loginError" class="text-red-500">{{ loginError }}</p>
+        </div>
+      
+        <div *ngIf="isLoggedIn" class="overflow-x-auto">
+          <h3 class="text-xl mb-2 text-pink-300">Bookings</h3>
+          <table class="w-full border-collapse border border-purple-600 text-white">
+            <thead class="bg-purple-800">
+              <tr>
+                <th class="border border-purple-600 p-2">ID</th>
+                <th class="border border-purple-600 p-2">Email</th>
+                <th class="border border-purple-600 p-2">Name</th>
+                <th class="border border-purple-600 p-2">Time</th>
+                <th class="border border-purple-600 p-2">Service</th>
+                <th class="border border-purple-600 p-2">Price</th>
+                <th class="border border-purple-600 p-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let booking of bookings" class="hover:bg-purple-700 transition duration-150 ease-in-out">
+                <td class="border border-purple-600 p-2">{{ booking.id }}</td>
+                <td class="border border-purple-600 p-2">{{ booking.user_email }}</td>
+                <td class="border border-purple-600 p-2">{{ booking.user_name }}</td>
+                <td class="border border-purple-600 p-2">{{ booking.booking_time | date:'short' }}</td>
+                <td class="border border-purple-600 p-2">{{ booking.service.name }}</td>
+                <td class="border border-purple-600 p-2">{{ booking.service.price | currency }}</td>
+                <td class="border border-purple-600 p-2">
+                  <button (click)="deleteBooking(booking.id)" class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-sm">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="p-4 bg-purple-900">
+        <button (click)="isVisible = false" class="flex items-center justify-center font-semibold leading-6 text-purple-200 hover:bg-pink-500 cursor-pointer active:bg-purple-700 bg-black w-full md:w-24 h-11 text-center rounded-full transition duration-150 ease-in-out">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>

@@ -22,11 +22,17 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets/images",
+                "output": "/assets/images"
+              }
             ],
             "styles": [
-              "src/styles.css"
-            ],
+              "src/styles.css",
+              "src/output.css"
+              ],
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,

@@ -1,0 +1,170 @@
+<!-- <button (click)="showAdmin()">Show Admin</button>
+<div *ngIf="isVisible" class="admin-overlay">
+<div class="container mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Admin Dashboard</h2>
+  
+    <div *ngIf="!isLoggedIn">
+      <h3 class="text-xl mb-2">Login</h3>
+      <form (ngSubmit)="login()" class="mb-4">
+        <div class="mb-2">
+          <label for="username" class="block">Username:</label>
+          <input type="text" id="username" [(ngModel)]="username" name="username" required class="border p-1 text-black">
+        </div>
+        <div class="mb-2">
+          <label for="password" class="block">Password:</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" required class="border p-1 text-black">
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+      </form>
+      <p *ngIf="loginError" class="text-red-500">{{ loginError }}</p>
+    </div>
+</div>
+    <div *ngIf="isLoggedIn">
+      <h3 class="text-xl mb-2">Bookings</h3>
+      <table class="w-full border-collapse border">
+        <thead>
+          <tr>
+            <th class="border p-2">ID</th>
+            <th class="border p-2">User Email</th>
+            <th class="border p-2">User Name</th>
+            <th class="border p-2">Booking Time</th>
+            <th class="border p-2">Service</th>
+            <th class="border p-2">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of bookings">
+            <td class="border p-2">{{ booking.id }}</td>
+            <td class="border p-2">{{ booking.user_email }}</td>
+            <td class="border p-2">{{ booking.user_name }}</td>
+            <td class="border p-2">{{ booking.booking_time }}</td>
+            <td class="border p-2">{{ booking.service.name }}</td>
+            <td class="border p-2">{{ booking.service.price | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+
+  <!-- <button (click)="showAdmin()" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded shadow-sm 
+  hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500
+  transition duration-150 ease-in-out">
+Show Admin
+</button>
+
+<div *ngIf="isVisible" class="admin-overlay bg-black bg-opacity-80 fixed inset-0 flex justify-center items-center z-50">
+<div class="container mx-auto p-8 bg-gradient-to-br from-purple-800 to-black rounded-xl shadow-lg">
+<h2 class="text-2xl font-bold mb-4 text-pink-400">Admin Dashboard</h2>
+
+<div *ngIf="!isLoggedIn">
+<h3 class="text-xl mb-2 text-pink-300">Login</h3>
+<form (ngSubmit)="login()" class="mb-4">
+<div class="mb-2">
+<label for="username" class="block text-pink-300">Username:</label>
+<input type="text" id="username" [(ngModel)]="username" name="username" required 
+class="border border-pink-500 bg-purple-700 p-2 text-white rounded-md shadow-sm
+     focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+</div>
+<div class="mb-2">
+<label for="password" class="block text-pink-300">Password:</label>
+<input type="password" id="password" [(ngModel)]="password" name="password" required 
+class="border border-pink-500 bg-purple-700 p-2 text-white rounded-md shadow-sm
+     focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+</div>
+<button type="submit" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded shadow-sm 
+    hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500
+    transition duration-150 ease-in-out">
+Login
+</button>
+</form>
+<p *ngIf="loginError" class="text-red-500">{{ loginError }}</p>
+</div>
+
+<div *ngIf="isLoggedIn">
+<h3 class="text-xl mb-2 text-pink-300">Bookings</h3>
+<table class="w-full border-collapse border border-purple-600 text-white">
+<thead class="bg-purple-800">
+<tr>
+<th class="border border-purple-600 p-2">ID</th>
+<th class="border border-purple-600 p-2">User Email</th>
+<th class="border border-purple-600 p-2">User Name</th>
+<th class="border border-purple-600 p-2">Booking Time</th>
+<th class="border border-purple-600 p-2">Service</th>
+<th class="border border-purple-600 p-2">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let booking of bookings" class="hover:bg-purple-700">
+<td class="border border-purple-600 p-2">{{ booking.id }}</td>
+<td class="border border-purple-600 p-2">{{ booking.user_email }}</td>
+<td class="border border-purple-600 p-2">{{ booking.user_name }}</td>
+<td class="border border-purple-600 p-2">{{ booking.booking_time }}</td>
+<td class="border border-purple-600 p-2">{{ booking.service.name }}</td>
+<td class="border border-purple-600 p-2">{{ booking.service.price | currency }}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div> -->
+
+
+<!-- Show Admin Button -->
+
+
+<!-- Admin Overlay -->
+<div *ngIf="isVisible" class="admin-overlay bg-zinc-900 bg-opacity-80 fixed inset-0 flex justify-center items-center z-50">
+  <div class="container mx-auto p-8 bg-gradient-to-br from-purple-800 to-black rounded-xl shadow-lg max-w-4xl">
+    <h2 class="text-2xl font-bold mb-4 text-pink-400">Admin Dashboard</h2>
+  
+    <div *ngIf="!isLoggedIn">
+      <h3 class="text-xl mb-2 text-pink-300">Login</h3>
+      <form (ngSubmit)="login()" class="mb-4">
+        <div class="mb-2">
+          <label for="username" class="block text-pink-300">Username:</label>
+          <input type="text" id="username" [(ngModel)]="username" name="username" required 
+                 class="border border-pink-500 bg-purple-700 p-2 text-white rounded-md shadow-sm w-full
+                        focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+        </div>
+        <div class="mb-2">
+          <label for="password" class="block text-pink-300">Password:</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" required 
+                 class="border border-pink-500 bg-purple-700 p-2 text-white rounded-md shadow-sm w-full
+                        focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+        </div>
+        <button type="submit" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded shadow-sm 
+                       hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500
+                       transition duration-150 ease-in-out transform hover:scale-105">
+          Login
+        </button>
+      </form>
+      <p *ngIf="loginError" class="text-red-500">{{ loginError }}</p>
+    </div>
+  
+    <div *ngIf="isLoggedIn">
+      <h3 class="text-xl mb-2 text-pink-300">Bookings</h3>
+      <table class="w-full border-collapse border border-purple-600 text-white">
+        <thead class="bg-purple-800">
+          <tr>
+            <th class="border border-purple-600 p-2">ID</th>
+            <th class="border border-purple-600 p-2">User Email</th>
+            <th class="border border-purple-600 p-2">User Name</th>
+            <th class="border border-purple-600 p-2">Booking Time</th>
+            <th class="border border-purple-600 p-2">Service</th>
+            <th class="border border-purple-600 p-2">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of bookings" class="hover:bg-purple-700 transition duration-150 ease-in-out">
+            <td class="border border-purple-600 p-2">{{ booking.id }}</td>
+            <td class="border border-purple-600 p-2">{{ booking.user_email }}</td>
+            <td class="border border-purple-600 p-2">{{ booking.user_name }}</td>
+            <td class="border border-purple-600 p-2">{{ booking.booking_time }}</td>
+            <td class="border border-purple-600 p-2">{{ booking.service.name }}</td>
+            <td class="border border-purple-600 p-2">{{ booking.service.price | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<!-- services.component.html -->
+<div class="mx-auto max-w-7xl py-6 sm:px-6 sm:py-7 lg:px-8">
+  <p class="mt-6 text-xl leading-8 font-bold text-black">Services</p>
+  <div class="relative isolate overflow-hidden bg-zinc-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+    <div class="bg-transparent w-full">
+      <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 class="sr-only">Products</h2>
+
+        <div class="overflow-y-auto max-h-[70vh] custom-scrollbar">
+          <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mb-16">
+            <div *ngFor="let service of services" (click)="selectService(service)" class="group cursor-pointer"> 
+              <!-- <img [src]="service.imageUrl" [alt]="service.name" class="h-full w-full object-cover object-center group-hover:opacity-75"> -->
+              <h3 class="mt-4 text-sm text-gray-700">{{ service.name }}</h3>
+              <p class="mt-1 text-lg font-medium text-white">${{ service.price }}</p>
+              <p class="mt-1 text-sm text-gray-500">{{ service.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Booking Form -->
+<div *ngIf="selectedService" class="relative mt-8 p-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-lg font-sans">
+  <button (click)="closeForm()" class="absolute top-4 right-4 text-gray-400 hover:text-white focus:outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  
+  <h3 class="text-2xl font-bold mb-6 text-white">Book {{ selectedService.name }}</h3>
+  
+  <form (ngSubmit)="bookService()" class="space-y-6">
+    <div>
+      <label for="userEmail" class="block text-sm font-medium text-gray-300">Email</label>
+      <input type="email" id="userEmail" [(ngModel)]="userEmail" name="userEmail" required 
+             class="mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-400
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                    text-white text-sm">
+    </div>
+    
+    <div>
+      <label for="userName" class="block text-sm font-medium text-gray-300">Name</label>
+      <input type="text" id="userName" [(ngModel)]="userName" name="userName" required 
+             class="mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-400
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                    text-white text-sm">
+    </div>
+    
+    <div>
+      <label for="bookingTime" class="block text-sm font-medium text-gray-300">Booking Time</label>
+      <input type="datetime-local" id="bookingTime" [(ngModel)]="bookingTime" name="bookingTime" required 
+             class="mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-400
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                    text-white text-sm">
+    </div>
+    
+    <button type="submit" 
+            class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-md shadow-sm 
+                   hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                   transition duration-150 ease-in-out text-sm font-medium">
+      Book Now
+    </button>
+  </form>
+</div>

@@ -1,0 +1,47 @@
+.admin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+
+
+/* Remove default focus outlines */
+* {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom focus styles for accessibility */
+a:focus, button:focus {
+  box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.5); /* Pink glow for focus */
+}
+
+.nav-link {
+  @apply flex items-center justify-center font-medium text-lg leading-6 text-white hover:text-pink-500 cursor-pointer active:text-purple-700 bg-gradient-to-r from-purple-500 to-pink-500 w-28 h-12 text-center rounded-full transition duration-200 ease-in-out transform hover:scale-105;
+}
+
+.mobile-nav-link {
+  @apply block w-full text-left px-3 py-2 rounded-md text-base font-medium text-pink-500 hover:text-pink-500 hover:bg-purple-700;
+}
+
+/* Specific styles for the mobile menu container */
+#mobile-menu {
+  @apply border-none;
+}
+
+/* Remove any potential border or outline from the header */
+header {
+  @apply border-none outline-none;
+}
+
+/* Ensure buttons don't have default browser styles */
+button {
+  @apply appearance-none;
+}

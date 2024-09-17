@@ -1,0 +1,11 @@
+ /* Add this to your global styles or component styles */
+ * {
+    outline: none !important;
+  }
+  
+  /* If the above doesn't work, try this more specific rule */
+  button, a {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+

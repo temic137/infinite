@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles.css */
+/* html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #000000, #7a00c9);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+/* Add this to your global styles or component styles */
+* {
+  outline: none !important;
+}
+
+/* If the above doesn't work, try this more specific rule */
+button, a {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* In your global styles or app component styles */
+.content-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.slideshow {
+  width: 100vw;
+  height: 33vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: slideshow 15s ease-in-out infinite;
+  }
+  @keyframes slideshow {
+  0% { background-image: url("assets/b.jpg"); }
+  33% { background-image: url("assets/b1.jpg"); }
+  66% { background-image: url("assets/b2.jpeg"); }
+  100% { background-image: url("assets/b.jpg"); }
+  }
+
+  /* Hides scrollbar but keeps the scrolling functionality for all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}

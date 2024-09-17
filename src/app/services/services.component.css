@@ -1,0 +1,31 @@
+
+
+  body {
+    background-color: #0a0a0a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #2d0a3e;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #8c52ff;
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a875ff;
+  } 
+
+
+  .custom-scrollbar {
+    scrollbar-width: none;  
+    -ms-overflow-style: none;  
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;  
+  } 
+
