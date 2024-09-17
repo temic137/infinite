@@ -39,19 +39,6 @@ button, a {
 }
 
 
-.slideshow {
-  width: 100vw;
-  height: 33vw;
-  background-size: cover;
-  background-repeat: no-repeat;
-  animation: slideshow 15s ease-in-out infinite;
-  }
-  @keyframes slideshow {
-  0% { background-image: url("assets/b.jpg"); }
-  33% { background-image: url("assets/b1.jpg"); }
-  66% { background-image: url("assets/b2.jpeg"); }
-  100% { background-image: url("assets/b.jpg"); }
-  }
 
   /* Hides scrollbar but keeps the scrolling functionality for all elements */
 * {
